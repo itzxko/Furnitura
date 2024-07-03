@@ -56,36 +56,84 @@
               id="cartQuantity"
               class="absolute bottom-2 left-3 px-1 rounded-md bg-white text-black flex items-center justify-center"
             >
-              <p class="text-[9px] font-bold">0</p>
+              <p class="text-[9px] font-bold"></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="w-full py-10"></div>
-    <div class="w-full flex flex-row gap-2 items-center justify-center lg:py-8">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="size-5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-        />
-      </svg>
 
-      <p class="text-sm font-semibold">Checkout</p>
-    </div>
-    <div class="w-full flex items-center justify-center p-8 lg:p-4">
+    <div
+      class="w-full flex flex-col items-center justify-start min-h-[100svh] bg-[#FAF5FF]"
+    >
+      <div class="w-full py-10 block"></div>
       <div
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-center items-center w-full lg:w-5/6"
-        id="cart-container"
-      ></div>
+        class="w-full flex flex-col justify-center items-center gap-2 lg:gap-6 lg:py-8"
+      >
+        <div class="w-full flex flex-row gap-2 items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
+
+          <p class="text-sm font-semibold">Checkout</p>
+        </div>
+        <div class="text-xs font-normal">
+          Please check the details of your order before proceeding...
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col gap-6 lg:flex-row items-start justify-center p-2 lg:w-5/6"
+      >
+        <div
+          class="w-full lg:w-4/5 flex items-center justify-center p-8"
+          id="cart-parent"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center w-full"
+            id="cart-container"
+          ></div>
+        </div>
+        <div class="w-full lg:w-1/5 flex items-start justify-center p-2">
+          <div
+            class="w-full flex flex-col items-center justify-center bg-white p-6 text-black rounded-lg shadow-xl"
+          >
+            <div class="w-full flex items-center justify-center pb-6">
+              <p class="text-sm font-semibold">Delivery Details</p>
+            </div>
+            <div class="flex text-start w-full py-2 border-b">
+              <div class="w-full flex flex-col gap-2">
+                <p class="text-xs font-normal">Total Amount:</p>
+                <p class="text-xs font-normal">Shipping Fee:</p>
+                <p class="text-xs font-normal">Discount:</p>
+              </div>
+              <div class="w-full flex flex-col text-end gap-2">
+                <p id="total-price" class="text-xs font-normal"></p>
+                <p id="total-shipping" class="text-xs font-normal">PHP 400</p>
+                <p id="total-discount" class="text-xs font-normal">PHP 600</p>
+              </div>
+            </div>
+            <div class="w-full flex items-center justify-between py-2">
+              <p class="text-xs font-normal w-1/2 text-start truncate">
+                Total Amount
+              </p>
+              <p class="text-xs font-normal w-1/2 text-end truncate">
+                PHP 3000
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="../Scripts/Checkout.js"></script>
