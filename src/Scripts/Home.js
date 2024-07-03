@@ -14,8 +14,8 @@ Products.forEach((items) => {
             />
           </div>
           <div class="flex flex-row items-center px-1 justify-between">
-            <div>
-              <p class="text-sm font-semibold">${items.name}</p>
+            <div class="w-3/4">
+              <p class="text-sm w-full truncate font-semibold">${items.name}</p>
               <p class="text-xs font-normal">PHP ${items.price}</p>
             </div>
             <div class="add-button p-2 bg-[#2f2f2f] rounded-full cursor-pointer group" data-id="${items.id}" id="">
