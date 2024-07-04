@@ -8,7 +8,7 @@ import {
   saveData,
 } from "../Data/Cart.js";
 import { shipping } from "../Data/Shipping.js";
-import { orders } from "../Data/Orders.js";
+import { orders, handleCheckout } from "../Data/Orders.js";
 
 const container = document.getElementById("cart-container");
 const priceContainer = document.getElementById("total-price");
@@ -146,22 +146,6 @@ remove.forEach((items) => {
   });
 });
 
-function handleCheckout() {
-  cart.forEach((cartItem) => {
-    Products.forEach((product) => {
-      if (cartItem.id === product.id) {
-        orders.push({
-          id: product.id,
-          price: product.price,
-          quantity: cartItem.quantity,
-        });
-      }
-    });
-  });
-  clearCart();
-  saveData();
-}
-
 proceedButton.addEventListener("click", () => {
   handleCheckout();
   calculateTotalPrice();
@@ -172,4 +156,3 @@ proceedButton.addEventListener("click", () => {
 calculateTotalPrice();
 ifEmptyCart();
 console.log(orders);
-console.log(cart);
