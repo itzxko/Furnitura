@@ -104,32 +104,134 @@
             id="cart-container"
           ></div>
         </div>
-        <div class="w-full lg:w-1/5 flex items-start justify-center p-2">
-          <div
-            class="w-full flex flex-col items-center justify-center bg-white p-6 text-black rounded-lg shadow-xl"
-          >
-            <div class="w-full flex items-center justify-center pb-6">
-              <p class="text-sm font-semibold">Delivery Details</p>
-            </div>
-            <div class="flex text-start w-full py-2 border-b">
-              <div class="w-full flex flex-col gap-2">
-                <p class="text-xs font-normal">Total Amount:</p>
-                <p class="text-xs font-normal">Shipping Fee:</p>
-                <p class="text-xs font-normal">Discount:</p>
+        <div
+          class="w-full lg:w-1/5 flex flex-col items-start justify-center p-2 gap-6"
+        >
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="w-full flex flex-col items-center justify-center bg-white p-6 text-black rounded-lg shadow-xl"
+            >
+              <div class="w-full flex items-center justify-center pb-6">
+                <p class="text-sm font-semibold">Delivery Details</p>
               </div>
-              <div class="w-full flex flex-col text-end gap-2">
-                <p id="total-price" class="text-xs font-normal"></p>
-                <p id="total-shipping" class="text-xs font-normal">PHP 400</p>
-                <p id="total-discount" class="text-xs font-normal">PHP 600</p>
+              <div class="flex text-start w-full py-2 border-b">
+                <div class="w-full flex flex-col gap-2">
+                  <p class="text-xs font-normal">Total Amount:</p>
+                  <p class="text-xs font-normal">Shipping Fee:</p>
+                  <p class="text-xs font-normal">Discount:</p>
+                </div>
+                <div class="w-full flex flex-col text-end gap-2">
+                  <p id="total-price" class="text-xs font-normal"></p>
+                  <p class="shipping-value text-xs font-normal">
+                    SELECT SHIPPING
+                  </p>
+                  <p id="total-discount" class="text-xs font-normal">PHP 600</p>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-between py-2">
+                <p class="text-xs font-normal w-1/2 text-start truncate">
+                  Total Amount
+                </p>
+                <p
+                  class="text-xs font-semibold w-1/2 text-end truncate"
+                  id="total-value"
+                >
+                  SELECT SHIPPING
+                </p>
               </div>
             </div>
-            <div class="w-full flex items-center justify-between py-2">
-              <p class="text-xs font-normal w-1/2 text-start truncate">
-                Total Amount
-              </p>
-              <p class="text-xs font-normal w-1/2 text-end truncate">
-                PHP 3000
-              </p>
+          </div>
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="w-full flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-xl"
+            >
+              <div class="w-full flex items-center justify-center pb-6">
+                <p class="text-sm font-semibold">Shipping Option</p>
+              </div>
+              <div
+                class="w-full flex flex-row items-center justify-between py-2 border-b"
+              >
+                <div class="w-1/2 flex flex-col items-start justify-start">
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-start py-1"
+                  >
+                    <input
+                      type="radio"
+                      id="free"
+                      name="shipping"
+                      data-id="free"
+                      class="shipping"
+                    />
+                    <label for="free" class="text-xs font-normal"
+                      >Free Shipping</label
+                    >
+                  </div>
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-start py-1"
+                  >
+                    <input
+                      type="radio"
+                      id="normal"
+                      name="shipping"
+                      data-id="normal"
+                      class="shipping"
+                    />
+                    <label for="normal" class="text-xs font-normal"
+                      >Normal Delivery</label
+                    >
+                  </div>
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-start py-1"
+                  >
+                    <input
+                      type="radio"
+                      id="premium"
+                      name="shipping"
+                      data-id="premium"
+                      class="shipping"
+                    />
+                    <label for="premium" class="text-xs font-normal"
+                      >Premium Delivery</label
+                    >
+                  </div>
+                </div>
+                <div class="w-1/2 flex flex-col items-center justify-center">
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-end py-1"
+                  >
+                    <p class="text-xs font-normal">FREE</p>
+                  </div>
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-end py-1"
+                  >
+                    <p class="text-xs font-normal">PHP 400</p>
+                  </div>
+                  <div
+                    class="w-full flex flex-row gap-2 items-centers justify-end py-1"
+                  >
+                    <p class="text-xs font-normal">PHP 900</p>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full flex place-items-center justify-between py-2">
+                <p class="w-1/2 text-start truncate text-xs font-normal">
+                  Total Shipping:
+                </p>
+                <p
+                  class="shipping-value w-1/2 text-end truncate text-xs font-semibold"
+                  id=""
+                >
+                  SELECT SHIPPING
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="w-full text-center py-3 bg-[#2f2f2f] hover:bg-[#474747] transition-all duration-500 rounded-md cursor-pointer shadow-xl"
+              id="proceed-button"
+            >
+              <p class="text-xs font-semibold text-white">Proceed</p>
             </div>
           </div>
         </div>

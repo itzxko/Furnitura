@@ -1,8 +1,25 @@
 import { Products } from "../Data/Products.js";
-import { cart, cartCount, removeProduct, ifEmptyCart } from "../Data/Cart.js";
+import {
+  cart,
+  cartCount,
+  removeProduct,
+  ifEmptyCart,
+  clearCart,
+  saveData,
+} from "../Data/Cart.js";
+import { shipping } from "../Data/Shipping.js";
+import { orders } from "../Data/Orders.js";
 
 const container = document.getElementById("cart-container");
 const priceContainer = document.getElementById("total-price");
+const shippingContainer = document.querySelectorAll(".shipping");
+const shippingValue = document.querySelectorAll(".shipping-value");
+const totalValue = document.getElementById("total-value");
+const proceedButton = document.getElementById("proceed-button");
+
+let shippingPrice = 0;
+let totalAmount = 0;
+let totalCheckout = 0;
 
 let html = ``;
 cart.forEach((items) => {
@@ -13,10 +30,6 @@ cart.forEach((items) => {
   Products.forEach((product) => {
     if (product.id === productId) {
       matchingProduct = product;
-
-      // console.log(`Price: ${matchingProduct.price}, Qty: ${items.quantity}`);
-      // totalPrice += parseInt(matchingProduct.price) * parseInt(items.quantity);
-      // priceContainer.innerText = totalPrice;
     }
   });
 
@@ -76,12 +89,29 @@ cart.forEach((items) => {
     `;
 });
 container.innerHTML = html;
-
 const remove = document.querySelectorAll(".remove-button");
+
+shippingContainer.forEach((shipItem) => {
+  shipItem.addEventListener("click", () => {
+    calculateShipping(shipItem.dataset.id);
+    calculateCheckout();
+  });
+});
+
+function calculateShipping(shipId) {
+  shipping.forEach((shipping) => {
+    if (shipping.id === shipId) {
+      shippingPrice = shipping.price;
+    }
+  });
+  shippingValue.forEach((shippingValue) => {
+    shippingValue.innerText = shippingPrice;
+  });
+  return shippingPrice;
+}
 
 function calculateTotalPrice() {
   let totalPrice = 0;
-
   cart.forEach((items) => {
     let matchingProduct;
 
@@ -95,6 +125,11 @@ function calculateTotalPrice() {
     });
   });
   priceContainer.innerText = `PHP ${totalPrice}`;
+  totalAmount = totalPrice;
+}
+function calculateCheckout() {
+  totalCheckout = shippingPrice + totalAmount;
+  totalValue.innerText = totalCheckout;
 }
 
 remove.forEach((items) => {
@@ -106,8 +141,35 @@ remove.forEach((items) => {
     parent.remove();
     cartCount();
     calculateTotalPrice();
+    calculateCheckout();
     ifEmptyCart();
   });
 });
+
+function handleCheckout() {
+  cart.forEach((cartItem) => {
+    Products.forEach((product) => {
+      if (cartItem.id === product.id) {
+        orders.push({
+          id: product.id,
+          price: product.price,
+          quantity: cartItem.quantity,
+        });
+      }
+    });
+  });
+  clearCart();
+  saveData();
+}
+
+proceedButton.addEventListener("click", () => {
+  handleCheckout();
+  calculateTotalPrice();
+  ifEmptyCart();
+  cartCount();
+});
+
 calculateTotalPrice();
 ifEmptyCart();
+console.log(orders);
+console.log(cart);

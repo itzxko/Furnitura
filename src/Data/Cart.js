@@ -58,7 +58,17 @@ function removeProduct(productId) {
   saveData();
   cartCount();
 }
-
+function clearCart() {
+  cart = [];
+}
 cartCount();
 
-export { cart, addToCart, cartCount, removeProduct, ifEmptyCart };
+export {
+  cart,
+  addToCart,
+  cartCount,
+  removeProduct,
+  ifEmptyCart,
+  clearCart,
+  saveData,
+};
