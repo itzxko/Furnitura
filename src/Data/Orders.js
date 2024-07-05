@@ -27,5 +27,6 @@ function handleCheckout() {
   saveData();
   saveOrders();
 }
+console.log(orders);
 
 export { handleCheckout, orders };

@@ -6,6 +6,7 @@ import {
   ifEmptyCart,
   clearCart,
   saveData,
+  toHome,
 } from "../Data/Cart.js";
 import { shipping } from "../Data/Shipping.js";
 import { orders, handleCheckout } from "../Data/Orders.js";
@@ -16,6 +17,7 @@ const shippingContainer = document.querySelectorAll(".shipping");
 const shippingValue = document.querySelectorAll(".shipping-value");
 const totalValue = document.getElementById("total-value");
 const proceedButton = document.getElementById("proceed-button");
+const homeButton = document.getElementById("home-button");
 
 let shippingPrice = 0;
 let totalAmount = 0;
@@ -142,17 +144,17 @@ remove.forEach((items) => {
     cartCount();
     calculateTotalPrice();
     calculateCheckout();
-    ifEmptyCart();
+    ifEmptyCart(toHome);
   });
 });
 
 proceedButton.addEventListener("click", () => {
   handleCheckout();
   calculateTotalPrice();
-  ifEmptyCart();
+  ifEmptyCart(toHome);
   cartCount();
+  window.location.href = "Orders.html";
 });
 
 calculateTotalPrice();
-ifEmptyCart();
-console.log(orders);
+ifEmptyCart(toHome);
