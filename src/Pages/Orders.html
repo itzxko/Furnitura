@@ -6,5 +6,66 @@
     <title>Orders</title>
     <link rel="stylesheet" href="../output.css" />
   </head>
-  <body></body>
+  <body class="font-dm">
+    <div
+      class="w-full fixed top-0 left-0 flex flex-row justify-between items-center p-2 z-50 text-white"
+    >
+      <div class="w-full flex items-center rounded-md bg-[#2f2f2f] py-4 px-6">
+        <div class="flex flex-row w-full">
+          <a class="text-sm font-semibold" href="./Home.html">Furnitura.</a>
+        </div>
+        <div
+          class="hidden lg:flex flex-row gap-4 w-full items-center justify-center"
+        >
+          <p class="text-xs font-semibold cursor-pointer">Cart</p>
+        </div>
+        <div class="flex flex-row gap-4 w-full items-center justify-end">
+          <div class="cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+
+          <div class="relative cursor-pointer">
+            <a href="./Checkout.html">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <div
+              id="cartQuantity"
+              class="absolute bottom-2 left-3 px-1 rounded-md bg-white text-black flex items-center justify-center"
+            >
+              <p class="text-[9px] font-bold"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex flex-col items-center justify-center">
+      <div class="order-container" id=""></div>
+    </div>
+
+    <script type="module" src="../Scripts/Orders.js"></script>
+  </body>
 </html>

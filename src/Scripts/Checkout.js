@@ -9,7 +9,7 @@ import {
   toHome,
 } from "../Data/Cart.js";
 import { shipping } from "../Data/Shipping.js";
-import { orders, handleCheckout } from "../Data/Orders.js";
+import { orders } from "../Data/Orders.js";
 
 const container = document.getElementById("cart-container");
 const priceContainer = document.getElementById("total-price");
@@ -138,7 +138,6 @@ remove.forEach((items) => {
   items.addEventListener("click", () => {
     const productId = items.dataset.id;
     removeProduct(productId);
-    console.log(productId);
     const parent = document.getElementById(`cart-product-${productId}`);
     parent.remove();
     cartCount();
@@ -147,6 +146,23 @@ remove.forEach((items) => {
     ifEmptyCart(toHome);
   });
 });
+
+function handleCheckout() {
+  cart.forEach((cartItem) => {
+    Products.forEach((product) => {
+      if (cartItem.id === product.id) {
+        orders.push({
+          id: product.id,
+          price: product.price,
+          quantity: cartItem.quantity,
+        });
+      }
+    });
+  });
+  clearCart();
+  saveData();
+  saveOrders();
+}
 
 proceedButton.addEventListener("click", () => {
   handleCheckout();
