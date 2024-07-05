@@ -43,6 +43,5 @@ document.querySelectorAll(".add-button").forEach((buttons) => {
   buttons.addEventListener("click", () => {
     addToCart(buttons);
     cartCount();
-    console.log(cart);
   });
 });
