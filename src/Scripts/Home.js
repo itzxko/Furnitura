@@ -3,6 +3,7 @@ import { Products } from "../Data/Products.js";
 
 let productRender = "";
 const container = document.getElementById("product-container");
+const addModal = document.getElementById("add-modal");
 
 Products.forEach((items) => {
   productRender += `<div class="flex flex-col gap-4 p-2 md:p-4">
@@ -39,10 +40,19 @@ Products.forEach((items) => {
 });
 container.innerHTML = productRender;
 
+function showAddModal() {
+  addModal.classList.remove("hidden");
+  addModal.classList.add("flex");
+  setTimeout(() => {
+    addModal.classList.remove("flex");
+    addModal.classList.add("hidden");
+  }, 1000);
+}
+
 document.querySelectorAll(".add-button").forEach((buttons) => {
   buttons.addEventListener("click", () => {
+    showAddModal();
     addToCart(buttons);
     cartCount();
-    console.log(cart);
   });
 });
