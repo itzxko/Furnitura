@@ -7,7 +7,7 @@ if (!cart) {
 function ifEmptyCart(callback) {
   if (cart.length === 0) {
     document.getElementById("cart-parent").innerHTML = `
-    <div class="w-full flex flex-col gap-2 items-center justify-center h-[70svh]"
+    <div class="w-full flex flex-col gap-2 items-center justify-center h-[50svh]"
     >
       <div>
         <svg

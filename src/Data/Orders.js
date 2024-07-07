@@ -1,5 +1,7 @@
 let orders = JSON.parse(localStorage.getItem("orders"));
 
+// localStorage.removeItem("orders");
+
 if (!orders) {
   orders = [];
 }
