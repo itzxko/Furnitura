@@ -1,0 +1,58 @@
+import { cart, addToCart, cartCount } from "../Data/Cart.js";
+import { Products } from "../Data/Products.js";
+
+let productRender = "";
+const container = document.getElementById("product-container");
+const addModal = document.getElementById("add-modal");
+
+Products.forEach((items) => {
+  productRender += `<div class="flex flex-col gap-4 p-2 md:p-4">
+          <div class="h-[160px] w-full rounded-md overflow-hidden">
+            <img
+              src="${items.img}"
+              alt=""
+              class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500 cursor-pointer"
+            />
+          </div>
+          <div class="flex flex-row items-center px-1 justify-between">
+            <div class="w-3/4">
+              <p class="text-sm w-full truncate font-semibold">${items.name}</p>
+              <p class="text-xs font-normal">PHP ${items.price}</p>
+            </div>
+            <div class="add-button p-2 bg-[#2f2f2f] rounded-full cursor-pointer group" data-id="${items.id}" id="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4 text-white group-hover:scale-110 transition-transform duration-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>`;
+});
+container.innerHTML = productRender;
+
+function showAddModal() {
+  addModal.classList.remove("hidden");
+  addModal.classList.add("flex");
+  setTimeout(() => {
+    addModal.classList.remove("flex");
+    addModal.classList.add("hidden");
+  }, 1000);
+}
+
+document.querySelectorAll(".add-button").forEach((buttons) => {
+  buttons.addEventListener("click", () => {
+    showAddModal();
+    addToCart(buttons);
+    cartCount();
+  });
+});
