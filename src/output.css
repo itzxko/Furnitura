@@ -729,6 +729,26 @@ video {
   height: 100%;
 }
 
+.h-\[120svh\]{
+  height: 120svh;
+}
+
+.h-\[110svh\]{
+  height: 110svh;
+}
+
+.h-\[90svh\]{
+  height: 90svh;
+}
+
+.h-\[60svh\]{
+  height: 60svh;
+}
+
+.h-\[80svh\]{
+  height: 80svh;
+}
+
 .min-h-\[50svh\]{
   min-height: 50svh;
 }
@@ -1243,6 +1263,10 @@ video {
 
   .lg\:h-\[520px\]{
     height: 520px;
+  }
+
+  .lg\:h-\[100svh\]{
+    height: 100svh;
   }
 
   .lg\:w-1\/2{
